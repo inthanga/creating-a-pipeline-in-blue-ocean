@@ -31,5 +31,10 @@ pipeline {
         }
       }
     }
+    stage('email') {
+      steps {
+        emailext(subject: 'This is a test', body: 'from BC ', from: 'indira', replyTo: 'indira.thangasamy@moogsoft.com', to: 'indira.thangasamy@moogsoft.com')
+      }
+    }
   }
 }
