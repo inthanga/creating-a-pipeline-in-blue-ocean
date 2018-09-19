@@ -12,5 +12,24 @@ pipeline {
         sh 'npm install'
       }
     }
+    stage('Deliver') {
+      parallel {
+        stage('Deliver') {
+          steps {
+            sh './jenkins/scripts/deliver.sh'
+            input '<"Proceed" to Continue'
+            sh './jenkins/scripts/kill.sh'
+          }
+        }
+        stage('Test') {
+          environment {
+            CI = 'true'
+          }
+          steps {
+            sh './jenkins/scripts/test.sh'
+          }
+        }
+      }
+    }
   }
 }
