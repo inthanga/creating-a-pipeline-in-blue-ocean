@@ -10,11 +10,6 @@ pipeline {
     stage('Build') {
       steps {
         sh '''
-GIT_HASH="$(git rev-parse --short HEAD)"
-BUILD_TIME="$(date +"%Y%m%d-%H%M%S")"
-BUILD_NUMBER="${BUILD_NUMBER-LOCAL}"
-BUILD_ID="$BUILD_TIME-$GIT_HASH-$BUILD_NUMBER"
-
 npm install
 
 '''
