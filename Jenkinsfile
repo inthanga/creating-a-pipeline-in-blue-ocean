@@ -37,5 +37,13 @@ pipeline {
         mail(subject: 'indira', body: 'this is test', to: 'inthanga@gmail.com', replyTo: 'inthanga@gmail.com', from: 'inthanga@gmail.com', cc: 'inthanga@gmail.com')
       }
     }
+    stage('') {
+      steps {
+        waitUntil() {
+          sleep 6
+        }
+
+      }
+    }
   }
 }
