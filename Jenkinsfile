@@ -34,6 +34,7 @@ pipeline {
     stage('email') {
       steps {
         emailext(subject: 'This is a test', body: 'from BC ', from: 'indira', replyTo: 'indira.thangasamy@moogsoft.com', to: 'indira.thangasamy@moogsoft.com')
+        mail(subject: 'indira', body: 'this is test', to: 'inthanga@gmail.com', replyTo: 'inthanga@gmail.com', from: 'inthanga@gmail.com', cc: 'inthanga@gmail.com')
       }
     }
   }
